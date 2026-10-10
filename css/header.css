@@ -1,9 +1,17 @@
-/* ==========================================
-   TopFive Cinema - Header Geral
-   ========================================== 
-*/
+/* ==========================================================
+   Organização do arquivo:
+   1. Variáveis
+   2. Estrutura do header e logo
+   3. Menu de navegação
+   4. Botão do menu (celular)
+   5. Responsivo
+   ========================================================== */
+
+
+/* ---------- 1. VARIÁVEIS ---------- */
 
 :root {
+  /* Paleta oficial do TopFive */
   --azulEscuro: #101626;
   --azul: #0583f2;
   --amarelo: #f2b544;
@@ -12,93 +20,134 @@
   --cinza: #4b5a69;
   --cinzaClaro: #a9b4c0;
   --branco: #f4f6f9;
+
+  --fonteTitulo: Georgia, "Times New Roman", serif;
+  --fonteTexto: "Trebuchet MS", Arial, sans-serif;
 }
 
+
+/* ---------- 2. ESTRUTURA DO HEADER E LOGO ---------- */
+
 .headerPrincipal {
-  background-color: var(--azulEscuro);
-  border-bottom: 1px solid var(--cinza);
-  position: sticky;
+  position: sticky;          /* O header segue a tela, acho melor mudar para fixed na tela dos filmes, a gente tem que ver isso */
   top: 0;
   z-index: 100;
+  background:
+    radial-gradient(ellipse 60% 140% at 50% 120%, rgba(242, 181, 68, 0.14), transparent 70%),
+    var(--azulEscuro);
+  border-bottom: 2px solid var(--amarelo);   /* primeira linha dourada */
+}
+
+/* Segunda linha dourada */
+.headerPrincipal::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 1px;
+  background-color: var(--amarelo);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .conteudoHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 2%;
-  position: relative;
+  padding: 0.6rem 5%;
+  position: relative; 
 }
 
 .logo {
   display: block;
-  background-color: var(--branco);
-  padding: 0.25rem;
-  border-radius: 0.8rem;
+  line-height: 0;
 }
 
 .imagemLogo {
   display: block;
-  height: 5.5rem;
+  height: 4.2rem;
   width: auto;
 }
 
-/* Menu para celular */
+
+/* ---------- 3. MENU DE NAVEGAÇÃO ---------- */
+
 .menu ul {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+/* ponto dourado que separa os links */
+.menu li + li::before {
+  content: "◆";
+  color: var(--amarelo);
+  font-size: 0.5rem;
+  opacity: 0.7;
+  margin: 0 0.6rem;
+  vertical-align: middle;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+}
+
 .linkMenu {
   display: block;
   padding: 0.5rem 0.8rem;
-  font-family: Arial, sans-serif;
+  font-family: var(--fonteTitulo); 
   font-weight: bold;
+  font-size: 1.1rem;
   text-decoration: none;
   color: var(--branco);
-  border-bottom: 3px solid transparent;
+  border-bottom: 3px double transparent;   /*espaço da linha dupla */
+  transition: color 0.2s, border-color 0.2s;
 }
 
+   texto dourado com linha dupla embaixo */
 .linkMenu:hover,
 .linkAtivo {
   color: var(--amarelo);
-  border-bottom: 3px solid var(--amarelo);
+  border-bottom: 3px double var(--amarelo);
 }
 
+
+/* ---------- 4. BOTÃO DO MENU (CELULAR) ---------- */
+
 .botaoMenu {
-  display: none;
+  display: none;             /* não da para ver isso no pc, pq o padrao é não mostrar */
   background: none;
-  border: 1px solid var(--cinza);
-  border-radius: 0.5rem;
-  color: var(--branco);
+  border: 1px solid var(--amarelo);
+  border-radius: 0.3rem;
+  color: var(--amarelo);
   font-size: 1.5rem;
-  padding: 0.3rem 0.8rem;
+  line-height: 1;
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
 }
 
 .botaoMenu:hover {
-  border-color: var(--amarelo);
+  background-color: var(--amarelo);
+  color: var(--preto);
 }
 
-.logo:focus-visible,
-.linkMenu:focus-visible,
-.botaoMenu:focus-visible {
-  outline: 3px solid var(--azul);
-}
 
-/* Responsivo para celular */
+/* ---------- 5. RESPONSIVO ---------- */
+
 @media (max-width: 768px) {
   .imagemLogo {
-    height: 4rem;
+    height: 3.2rem;
   }
 
   .botaoMenu {
     display: block;
   }
 
+  /* Lista do header */
   .menu {
     display: none;
     position: absolute;
@@ -106,8 +155,9 @@
     left: 0;
     width: 100%;
     background-color: var(--azulEscuro);
-    border-bottom: 1px solid var(--cinza);
+    border-bottom: 2px solid var(--amarelo);
   }
+
 
   .menuAberto {
     display: block;
@@ -115,8 +165,13 @@
 
   .menu ul {
     flex-direction: column;
-    gap: 0;
+    align-items: stretch;
     padding: 0.5rem 5% 1rem;
+  }
+
+  /* */
+  .menu li + li::before {
+    display: none;
   }
 
   .linkMenu {
@@ -126,6 +181,6 @@
 
   .linkMenu:hover,
   .linkAtivo {
-    border-bottom: 3px solid var(--amarelo);
+    border-bottom: 3px double var(--amarelo);
   }
 }

@@ -1,0 +1,282 @@
+/* ==========================================================
+   TopFive Cinema - Página de contato (contato.html)
+   Estilo: Golden Age (Art Déco, ouro e cortina vermelha)
+
+   Organização do arquivo:
+   1. Variáveis e reset
+   2. Título da página
+   3. Cartões da equipe
+   4. Rodapé
+   5. Responsivo
+   ========================================================== */
+
+
+/* ---------- 1. VARIÁVEIS E RESET ---------- */
+
+:root {
+  /* Paleta oficial do TopFive */
+  --azulEscuro: #101626;
+  --azul: #0583f2;
+  --amarelo: #f2b544;
+  --vermelho: #bf2c2c;
+  --preto: #0d0d0d;
+  --cinza: #4b5a69;
+  --cinzaClaro: #a9b4c0;
+  --branco: #f4f6f9;
+
+  --fonteTitulo: Georgia, "Times New Roman", serif;
+  --fonteTexto: "Trebuchet MS", Arial, sans-serif;
+  --ouroBorda: rgba(242, 181, 68, 0.45);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--preto);
+  color: var(--branco);
+  font-family: var(--fonteTexto);
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ---------- 2. TÍTULO DA PÁGINA ---------- */
+
+.secaoTitulo {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 5%;
+  text-align: center;
+  background-color: var(--azulEscuro);
+  border-bottom: 2px solid var(--amarelo);
+}
+
+/* Mesmo efeito de raios dourados do hero da home, mas centralizado */
+.holofote {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 90% at 50% 130%, rgba(242, 181, 68, 0.35), transparent 70%),
+    repeating-conic-gradient(from 270deg at 50% 130%,
+      rgba(242, 181, 68, 0.12) 0deg 3deg,
+      transparent 3deg 9deg);
+}
+
+.conteudoSecaoTitulo {
+  position: relative;        /* fica acima do .holofote */
+  z-index: 1;
+}
+
+.tituloPagina {
+  font-family: var(--fonteTitulo);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--amarelo);
+  margin-bottom: 0.8rem;
+}
+
+.descricaoPagina {
+  font-size: 1.1rem;
+  color: var(--cinzaClaro);
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+
+/* ---------- 3. CARTÕES DA EQUIPE ---------- */
+
+.secaoEquipe {
+  padding: 3rem 5%;
+  max-width: 84rem;
+  margin: 0 auto;
+}
+
+/* Lista em linhas que quebram sozinhas. O justify-content: center
+   mantém a última linha centralizada (útil com 9 integrantes).
+   A largura de cada cartão vem de --colunas (muda nos media queries),
+   então comporta 9 ou 10 integrantes sem mexer em mais nada. */
+.listaMembros {
+  --colunas: 5;
+  --espaco: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espaco);
+}
+
+.itemMembro {
+  /* largura = (100% - espaços entre os cartões) / número de colunas */
+  flex: 0 0 calc((100% - (var(--colunas) - 1) * var(--espaco)) / var(--colunas));
+}
+
+.cartaoMembro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 1.5rem 1rem 1.5rem;
+  text-align: center;
+  background: linear-gradient(160deg, var(--azulEscuro) 0%, var(--preto) 85%);
+  border: 1px solid var(--ouroBorda);
+  border-radius: 0.3rem;
+  position: relative;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+/* Moldura interna fina, igual aos cartões de gênero da home */
+.cartaoMembro::before {
+  content: "";
+  position: absolute;
+  inset: 0.4rem;
+  border: 1px solid rgba(242, 181, 68, 0.25);
+  border-radius: 0.15rem;
+  pointer-events: none;
+}
+
+.cartaoMembro:hover {
+  border-color: var(--amarelo);
+  transform: translateY(-3px);
+}
+
+/* Moldura da foto em formato de arco art déco (topo redondo) */
+.molduraFoto {
+  width: 7.5rem;
+  aspect-ratio: 4 / 5;
+  margin-bottom: 1rem;
+  overflow: hidden;                       /* corta a foto no formato do arco */
+  border: 2px solid var(--amarelo);
+  border-radius: 999px 999px 0.3rem 0.3rem;
+  /* anel extra fino em volta, para dar o efeito de moldura dupla */
+  box-shadow: 0 0 0 4px var(--preto), 0 0 0 5px var(--ouroBorda);
+}
+
+.fotoMembro {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                      /* preenche sem distorcer */
+}
+
+.nomeMembro {
+  font-family: var(--fonteTitulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--branco);
+  margin-bottom: 0.8rem;
+}
+
+/* Filete duplo dourado embaixo do nome */
+.nomeMembro::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 5px;
+  margin: 0.5rem auto 0;
+  border-top: 1px solid var(--amarelo);
+  border-bottom: 1px solid var(--amarelo);
+}
+
+.linksMembro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.linkContato {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--cinzaClaro);
+  text-decoration: none;
+  overflow-wrap: anywhere;                /* quebra e-mails/links compridos */
+}
+
+.linkContato:hover {
+  color: var(--amarelo);
+}
+
+/* Rótulo "GitHub" / "E-mail" em dourado, em cima do endereço */
+.rotuloContato {
+  display: block;
+  font-family: var(--fonteTitulo);
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: var(--amarelo);
+}
+
+/* Acessibilidade: contorno azul visível ao navegar com o teclado (Tab) */
+.linkContato:focus-visible,
+.menuRodape a:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 2px;
+}
+
+
+/* ---------- 4. RODAPÉ ---------- */
+
+.rodapePrincipal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 5% 2.5rem;
+  background-color: var(--preto);
+}
+
+.linhaRodape {
+  flex: 0 1 8rem;
+  height: 5px;
+  border-top: 1px solid var(--amarelo);
+  border-bottom: 1px solid var(--amarelo);
+}
+
+.menuRodape {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menuRodape a {
+  color: var(--cinzaClaro);
+  text-decoration: none;
+}
+
+.menuRodape a:hover {
+  color: var(--amarelo);
+}
+
+
+/* ---------- 5. RESPONSIVO ---------- */
+
+/* Notebook pequeno / tablet grande: 3 cartões por linha */
+@media (max-width: 1100px) {
+  .listaMembros {
+    --colunas: 3;
+  }
+}
+
+/* Tablet / celular grande: 2 por linha */
+@media (max-width: 700px) {
+  .listaMembros {
+    --colunas: 2;
+  }
+}
+
+/* Celular pequeno: 1 por linha e filetes do rodapé menores */
+@media (max-width: 480px) {
+  .listaMembros {
+    --colunas: 1;
+  }
+
+  .linhaRodape {
+    flex-basis: 2rem;
+  }
+}

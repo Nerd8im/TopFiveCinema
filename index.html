@@ -14,7 +14,7 @@
         <div class="conteudoHeader">
 
             <a class="logo" href="index.html">
-                <img class="imagemLogo" src="./img/logo.png" alt="TopFive Cinema">
+                <img class="imagemLogo" src="./img/logo-header.svg" alt="TopFive Cinema">
             </a>
 
             <button class="botaoMenu" id="botaoMenu" aria-label="Abrir menu">☰</button>
@@ -26,13 +26,102 @@
                     <li><a class="linkMenu" href="contato.html">Contato</a></li>
                 </ul>
             </nav>
-
         </div>
     </header>
 
     <main>
+        <section class="secaoPrincipal">
+            <div class="conteudoSecaoPrincipal">
+                <h1 class="tituloPrincipal">Encontre seu próximo filme</h1>
+                <p class="descricaoPrincipal">Explore os gêneros, descubra clássicos e veja as críticas e recomendações que fazem da Top Five Cinema a sua sessão preferida.</p>
 
+                <form class="buscaPrincipal" action="filmes.html" role="search">
+                    <svg class="iconeBusca" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg>
+                    <input class="campoBusca" type="search" name="q" aria-label="Pesquisar filme, gênero ou ator">
+                    <button class="botaoBusca" type="submit">Buscar</button>
+                </form>
+            </div>
+            <div class="holofote" aria-hidden="true"></div>
+        </section>
+
+        <section class="secaoCategorias">
+            <div class="cabecalhoCategorias">
+                <h2 class="tituloCategorias">Escolha uma categoria</h2>
+                <p class="subtituloCategorias">Navegue pelos gêneros e descubra filmes incríveis.</p>
+            </div>
+
+            <ul class="gradeCategorias">
+                <li>
+                    <a class="cartaoCategoria cartaoAcao" href="filmes.html?genero=acao">
+                        <span class="iconeCategoria" aria-hidden="true">💥</span>
+                        <span class="nomeCategoria">Ação</span>
+                        <span class="textoCategoria">Adrenalina do começo ao fim.</span>
+                        <span class="setaCategoria" aria-hidden="true">›</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="cartaoCategoria cartaoTerror" href="filmes.html?genero=terror-horror">
+                        <span class="iconeCategoria" aria-hidden="true">👻</span>
+                        <span class="nomeCategoria">Terror/Horror</span>
+                        <span class="textoCategoria">O medo também é um sentimento.</span>
+                        <span class="setaCategoria" aria-hidden="true">›</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="cartaoCategoria cartaoAventura" href="filmes.html?genero=aventura">
+                        <span class="iconeCategoria" aria-hidden="true">🗺️</span>
+                        <span class="nomeCategoria">Aventura</span>
+                        <span class="textoCategoria">Grandes jornadas e mundos a explorar.</span>
+                        <span class="setaCategoria" aria-hidden="true">›</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="cartaoCategoria cartaoRomance" href="filmes.html?genero=romance">
+                        <span class="iconeCategoria" aria-hidden="true">❤️</span>
+                        <span class="nomeCategoria">Romance</span>
+                        <span class="textoCategoria">Grandes histórias de amor.</span>
+                        <span class="setaCategoria" aria-hidden="true">›</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="cartaoCategoria cartaoComedia" href="filmes.html?genero=comedia">
+                        <span class="iconeCategoria" aria-hidden="true">😂</span>
+                        <span class="nomeCategoria">Comédia</span>
+                        <span class="textoCategoria">Porque a vida já é séria demais.</span>
+                        <span class="setaCategoria" aria-hidden="true">›</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="cartaoCategoria cartaoFiccao" href="filmes.html?genero=ficcao-cientifica">
+                        <span class="iconeCategoria" aria-hidden="true">🚀</span>
+                        <span class="nomeCategoria">Ficção Científica</span>
+                        <span class="textoCategoria">O futuro (e o desconhecido) te espera.</span>
+                        <span class="setaCategoria" aria-hidden="true">›</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="cartaoCategoria cartaoAnimacao" href="filmes.html?genero=animacao">
+                        <span class="iconeCategoria" aria-hidden="true">🎨</span>
+                        <span class="nomeCategoria">Animação</span>
+                        <span class="textoCategoria">Desenhos que encantam todas as idades.</span>
+                        <span class="setaCategoria" aria-hidden="true">›</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
     </main>
+
+    <footer class="rodapePrincipal">
+        <span class="linhaRodape" aria-hidden="true"></span>
+        <nav class="menuRodape" aria-label="Rodapé">
+            <a href="sobre.html">Sobre</a>
+            <a href="filmes.html">Filmes</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+        <span class="linhaRodape" aria-hidden="true"></span>
+    </footer>
+
+    <script src="js/header.js"></script>
 </body>
 
 </html>

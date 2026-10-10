@@ -1,15 +1,364 @@
+/* ==========================================================
+   Organização do arquivo:
+   1. Variáveis e reset
+   2. Seção principal (hero) e busca
+   3. Categorias (grade de cartões)
+   4. Rodapé
+   5. Responsivo
+   ========================================================== */
+
+
+/* ---------- 1. VARIÁVEIS E RESET ---------- */
+
 :root {
+ /* Paleta oficial*/
   --azulEscuro: #101626;
   --azul: #0583f2;
-  --amarelo: #f2b544;
+  --amarelo: #f2b544; 
   --vermelho: #bf2c2c;
   --preto: #0d0d0d;
   --cinza: #4b5a69;
   --cinzaClaro: #a9b4c0;
   --branco: #f4f6f9;
+
+  --fonteTitulo: Georgia, "Times New Roman", serif;
+  --fonteTexto: "Trebuchet MS", Arial, sans-serif;
+  --ouroBorda: rgba(242, 181, 68, 0.45);
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--preto);
+  color: var(--branco);
+  font-family: var(--fonteTexto);
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ---------- 2. SEÇÃO PRINCIPAL (HERO) ---------- */
+
+.secaoPrincipal {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 26rem;
+  padding: 3rem 5%;
+  background-color: var(--azulEscuro);
+  border-bottom: 2px solid var(--amarelo);
+}
+
+/* Esse é o brilho dourado que fica no canto */
+.holofote {
+  position: absolute;
+  inset: 0; 
+  pointer-events: none;
+  background:
+    /* Usei um site para gerar gradiente, na aula eu mostro */
+    radial-gradient(ellipse 45% 70% at 92% 45%, rgba(242, 181, 68, 0.35), transparent 70%),
+    repeating-conic-gradient(from 200deg at 100% 45%,
+      rgba(242, 181, 68, 0.12) 0deg 3deg,
+      transparent 3deg 9deg);
+  /* isso é efeito pra ir ficando mais fraco aos poucos */
+  -webkit-mask-image: linear-gradient(to left, #000 20%, transparent 85%);
+  mask-image: linear-gradient(to left, #000 20%, transparent 85%);
+}
+
+.conteudoSecaoPrincipal {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+}
+
+.tituloPrincipal {
+  font-family: var(--fonteTitulo);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1.1;
+  color: var(--amarelo);
+  margin-bottom: 1rem;
+}
+
+.descricaoPrincipal {
+  font-size: 1.15rem;
+  color: var(--cinzaClaro);
+  max-width: 32rem;  
+  margin-bottom: 2rem;
+}
+
+.buscaPrincipal {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0.4rem 0.4rem 1.2rem;
+  background-color: var(--preto);
+  border: 2px solid var(--amarelo);
+  border-radius: 999px;  
+  box-shadow: 0 0 0 4px var(--azulEscuro), 0 0 0 5px var(--ouroBorda);
+}
+
+/* focus é pra quando clicar ele muda a cor da borda */
+.buscaPrincipal:focus-within {
+  border-color: var(--branco);
+}
+
+.iconeBusca {
+  flex-shrink: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: var(--amarelo);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.campoBusca {
+  flex: 1;
+  min-width: 0;           
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--branco);
+  font-family: var(--fonteTexto);
+  font-size: 1rem;
+}
+
+.campoBusca::placeholder {
+  color: var(--cinzaClaro);
+}
+
+.botaoBusca {
+  background-color: var(--amarelo);
+  color: var(--preto);
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1.6rem;
+  font-family: var(--fonteTexto);
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.botaoBusca:hover {
+  background-color: var(--branco);
+}
+
+
+/* ---------- 3. CATEGORIAS ---------- */
+
+.secaoCategorias {
+  padding: 3rem 5% 2rem;
+  background-color: var(--preto);
+}
+
+.cabecalhoCategorias {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tituloCategorias {
+  font-family: var(--fonteTitulo);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--branco);
+}
+
+/* essa é aquela linha dourada embaixo do titulo*/
+.tituloCategorias::after {
+  content: "";
+  display: block;
+  width: 6rem;
+  height: 5px;
+  margin: 0.6rem auto 0.8rem;
+  border-top: 1px solid var(--amarelo);
+  border-bottom: 1px solid var(--amarelo);
+}
+
+.subtituloCategorias {
+  color: var(--cinzaClaro);
+}
+
+.gradeCategorias {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.25rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+/* --- Cartão de cada gênero --- */
+.gradeCategorias li {
+  grid-column: span 3;
+}
+
+.gradeCategorias li:nth-child(n + 5) {
+  grid-column: span 4;
+}
+
+.cartaoCategoria {
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%; 
+  min-height: 11rem;
+  padding: 1.2rem 3.5rem 1.2rem 1.2rem;
+  color: var(--branco);
+  text-decoration: none;
+  background: var(--fundoCartao, var(--azulEscuro));
+  border: 1px solid var(--ouroBorda);
+  border-radius: 0.3rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+/* Borda de dentro*/
+.cartaoCategoria::before {
+  content: "";
+  position: absolute;
+  inset: 0.4rem;
+  border: 1px solid rgba(242, 181, 68, 0.25);
+  border-radius: 0.15rem;
+  pointer-events: none;
+}
+
+/* hover muda o estilo do cartão quando passa o mouse encima*/
+.cartaoCategoria:hover {
+  border-color: var(--amarelo);
+  transform: translateY(-3px);
+}
+
+/*estrilo dos emoji */
+.iconeCategoria {
+  margin-bottom: 0.4rem;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.nomeCategoria {
+  font-family: var(--fonteTitulo);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.textoCategoria {
+  font-size: 0.9rem;
+  color: var(--cinzaClaro);
+}
+
+/* Botão redondo com a seta */
+.setaCategoria {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--amarelo);
+  border-radius: 50%;
+  color: var(--amarelo);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding-bottom: 0.15rem;
+}
+
+/* A seta fica colorida quando passa o mouse por cima do cartão */
+.cartaoCategoria:hover .setaCategoria {
+  background-color: var(--amarelo);
+  color: var(--preto);
+}
+
+/* --- Fundos de cada gênero --- */
+.cartaoAcao      { --fundoCartao: linear-gradient(160deg, var(--vermelho) -40%, var(--preto) 75%); }
+.cartaoTerror    { --fundoCartao: linear-gradient(160deg, var(--cinza) -40%, var(--preto) 70%); }
+.cartaoAventura  { --fundoCartao: linear-gradient(160deg, var(--amarelo) -50%, var(--azulEscuro) 75%); }
+.cartaoRomance   { --fundoCartao: linear-gradient(160deg, var(--vermelho) -20%, var(--azulEscuro) 80%); }
+.cartaoComedia   { --fundoCartao: linear-gradient(160deg, var(--amarelo) -60%, var(--preto) 75%); }
+.cartaoFiccao    { --fundoCartao: linear-gradient(160deg, var(--azul) -50%, var(--azulEscuro) 70%); }
+.cartaoAnimacao  { --fundoCartao: linear-gradient(160deg, var(--azul) -40%, var(--vermelho) 150%); }
+
+
+/* ---------- 4. RODAPÉ ---------- */
+
+.rodapePrincipal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 5% 2.5rem;
+  background-color: var(--preto);
+}
+
+.linhaRodape {
+  flex: 0 1 8rem;        
+  height: 5px;
+  border-top: 1px solid var(--amarelo);
+  border-bottom: 1px solid var(--amarelo);
+}
+
+.menuRodape {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menuRodape a {
+  color: var(--cinzaClaro);
+  text-decoration: none;
+}
+
+.menuRodape a:hover {
+  color: var(--amarelo);
+}
+
+
+/* ---------- 5. RESPONSIVO ---------- */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .gradeCategorias li,
+  .gradeCategorias li:nth-child(n + 5) {
+    grid-column: span 6;
+  }
+
+  .gradeCategorias li:last-child {
+    grid-column: span 12;
+  }
+}
+
+/* Celular grade */
+@media (max-width: 768px) {
+  .secaoPrincipal {
+    min-height: 0;
+    padding: 2.5rem 5%;
+  }
+
+  .buscaPrincipal {
+    padding-left: 1rem;
+  }
+
+  .botaoBusca {
+    padding: 0.7rem 1.1rem;
+  }
+}
+
+/* Celular pequeno */
+@media (max-width: 520px) {
+  .gradeCategorias li,
+  .gradeCategorias li:nth-child(n + 5),
+  .gradeCategorias li:last-child {
+    grid-column: span 12;
+  }
+
+  .linhaRodape {
+    flex-basis: 2rem;
+  }
 }
