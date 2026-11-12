@@ -151,8 +151,43 @@
 
             </ul>
         </section>
-        <section class="formulario">
-            <header class="formularioHeader"> </header>
+
+        <section class="formulario" aria-labelledby="titulo-formulario">
+            <header class="formularioHeader">
+                <h2 id="titulo-formulario">Fale com a gente</h2>
+                <p>Envie uma sugestão, crítica, elogio ou dúvida sobre a Top Five Cinema.</p>
+            </header>
+
+            <form class="formContato" action="mailto:gabrielanjos0524@gmail.com?subject=Contato%20pelo%20site%20Top%20Five%20Cinema" method="post" enctype="text/plain">
+                <div class="campoForm">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" required minlength="3" maxlength="80">
+                </div>
+
+                <div class="campoForm">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+                </div>
+
+                <div class="campoForm">
+                    <label for="assunto">Assunto</label>
+                    <select id="assunto" name="assunto" required>
+                        <option value="" disabled selected>Escolha um assunto</option>
+                        <option value="sugestao">Sugestão</option>
+                        <option value="critica">Crítica</option>
+                        <option value="elogio">Elogio</option>
+                        <option value="duvida">Dúvida</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="campoForm">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva sua mensagem aqui..." required minlength="10" maxlength="1000"></textarea>
+                </div>
+
+                <button class="botaoEnviar" type="submit">Enviar mensagem</button>
+            </form>
         </section>
     </main>
 

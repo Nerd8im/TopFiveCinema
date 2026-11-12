@@ -1,0 +1,217 @@
+:root {
+  --azulEscuro: #101626;
+  --azul: #0583f2;
+  --amarelo: #f2b544;
+  --vermelho: #bf2c2c;
+  --preto: #0d0d0d;
+  --cinza: #4b5a69;
+  --cinzaClaro: #a9b4c0;
+  --branco: #f4f6f9;
+
+  --fonteTitulo: Georgia, "Times New Roman", serif;
+  --fonteTexto: "Trebuchet MS", Arial, sans-serif;
+  --ouroBorda: rgba(242, 181, 68, 0.45);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--preto);
+  color: var(--branco);
+  font-family: var(--fonteTexto);
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+}
+
+.secaoTitulo {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 5%;
+  text-align: center;
+  background-color: var(--azulEscuro);
+  border-bottom: 2px solid var(--amarelo);
+}
+
+.holofote {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 90% at 50% 130%, rgba(242, 181, 68, 0.35), transparent 70%),
+    repeating-conic-gradient(from 270deg at 50% 130%,
+      rgba(242, 181, 68, 0.12) 0deg 3deg,
+      transparent 3deg 9deg);
+}
+
+.conteudoSecaoTitulo {
+  position: relative;
+  z-index: 1;
+}
+
+.tituloPagina {
+  font-family: var(--fonteTitulo);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  color: var(--amarelo);
+}
+
+.tituloPagina::after {
+  content: "";
+  display: block;
+  width: 6rem;
+  height: 5px;
+  margin: 0.8rem auto 0;
+  border-top: 1px solid var(--amarelo);
+  border-bottom: 1px solid var(--amarelo);
+}
+
+.conteudoSobre {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 5%;
+}
+
+.blocoSobre {
+  position: relative;
+  padding: 2rem 2.2rem;
+  background: linear-gradient(160deg, var(--azulEscuro) 0%, var(--preto) 85%);
+  border: 1px solid var(--ouroBorda);
+  border-radius: 0.3rem;
+}
+
+.blocoSobre::before {
+  content: "";
+  position: absolute;
+  inset: 0.4rem;
+  border: 1px solid rgba(242, 181, 68, 0.25);
+  border-radius: 0.15rem;
+  pointer-events: none;
+}
+
+.blocoSobre h2 {
+  font-family: var(--fonteTitulo);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: var(--amarelo);
+}
+
+.blocoSobre h2::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 5px;
+  margin: 0.6rem 0 1.2rem;
+  border-top: 1px solid var(--amarelo);
+  border-bottom: 1px solid var(--amarelo);
+}
+
+.blocoSobre p {
+  color: var(--cinzaClaro);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.blocoSobre p + p,
+.blocoSobre p + .listaGeneros,
+.blocoSobre .listaGeneros + p {
+  margin-top: 1rem;
+}
+
+.listaGeneros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chipGenero {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  color: var(--branco);
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid var(--ouroBorda);
+  border-radius: 999px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.chipGenero:hover {
+  background-color: var(--amarelo);
+  border-color: var(--amarelo);
+  color: var(--preto);
+}
+
+.chipGenero:focus-visible,
+.menuRodape a:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 2px;
+}
+
+.rodapePrincipal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 5% 2.5rem;
+  background-color: var(--preto);
+}
+
+.linhaRodape {
+  flex: 0 1 8rem;
+  height: 5px;
+  border-top: 1px solid var(--amarelo);
+  border-bottom: 1px solid var(--amarelo);
+}
+
+.menuRodape {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menuRodape p {
+  color: var(--cinzaClaro);
+}
+
+.menuRodape a {
+  color: var(--cinzaClaro);
+  text-decoration: none;
+}
+
+.menuRodape a:hover {
+  color: var(--amarelo);
+}
+
+@media (max-width: 768px) {
+  .conteudoSobre {
+    padding: 2rem 5%;
+  }
+
+  .blocoSobre {
+    padding: 1.5rem 1.4rem;
+  }
+
+  .rodapePrincipal {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .menuRodape {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .linhaRodape {
+    display: none;
+  }
+}
