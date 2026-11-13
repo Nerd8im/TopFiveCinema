@@ -6,12 +6,13 @@ Contém as imagens do site.
 
 | Caminho | Descrição |
 | --- | --- |
-| `logo.png` | 🎬 Logo do TopFive Cinema, usado no header de todas as páginas. |
+| `logo.svg` | 🎬 Logo do TopFive Cinema, usado no header de todas as páginas. |
 | `filmes/` | 🎞️ Capas e imagens de fundo dos filmes, em subpastas por gênero (`acao`, `aventura`, `comedia`, `ficcao-cientifica`, `romance`, `animacao`, `terror`). |
+| `membro-placeholder.svg` | 🎬 Usado como fundo temporário nas fotos da equipe na página `contato.html`. |
 
 ## 🎞️ Imagens dos filmes
 
-Cada filme tem **2 imagens**, ambas na mesma pasta do seu gênero:
+Cada filme pode conter até **2 imagens**, ambas na mesma pasta do seu gênero:
 
 | Imagem | Nome do arquivo | Uso |
 | --- | --- | --- |
@@ -27,6 +28,6 @@ img/filmes/ficcao-cientifica/a_origem_fundo.webp
 
 ## 📌 Regras
 
-- 🔢 São 35 capas e 35 imagens de fundo (70 imagens), todas em formato `.webp`.
+- 🔢 São 35 capas e imagens de fundo, caso escolhido, todas em formato `.webp`.
 - 📝 O nome da imagem é igual ao da página HTML. Exemplo: `img/filmes/terror/psicose.webp` é a capa de `filmes/terror/psicose.html`, e `psicose_fundo.webp` é o fundo dela.
 - ⚖️ As imagens são usadas apenas para fins acadêmicos, e os direitos pertencem aos seus detentores.
