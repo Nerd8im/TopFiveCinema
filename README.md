@@ -37,8 +37,8 @@ topfive-cinema/
 ├── contato.html
 ├── filmes.html
 ├── filmes/    -> páginas individuais dos filmes, por gênero
-├── css/       -> style.css e um CSS exclusivo para cada filme
-├── js/        -> script.js
+├── css/       -> Um CSS para cada uma das páginas principais e um CSS exclusivo para cada filme
+├── js/        -> 3 js, sendo 2 para os filmes e 1 para o header
 ├── img/       -> logo, capas e imagens de fundo dos filmes
 ├── assets/    -> vídeo de fundo dos filmes
 └── docs/      -> documentação do projeto
@@ -82,17 +82,17 @@ Clique no botão acima para abrir o site direto no navegador, sem instalação n
 | Petterson Michel | 😂 Páginas, CSS dos 5 filmes de Comédia |
 | Samuel Guimarães | 🚀 Páginas, CSS dos 5 filmes de Ficção Científica |
 | Davi Pereira | 🎨 Páginas, CSS dos 5 filmes de Animação |
-| Gabriel Anjos | 🏠 Páginas principais, CSS principal e JavaScript (ver detalhes abaixo) |
-| Rafael Christian | 🏠 Páginas principais, CSS principal e JavaScript (ver detalhes abaixo) |
+| Gabriel Anjos | 🏠 Páginas principais, CSS das páginas principais e JavaScript (ver detalhes abaixo) |
+| Rafael Christian | 🏠 Páginas principais, CSS das páginas principais e JavaScript (ver detalhes abaixo) |
 
-### 🧩 Páginas principais, CSS principal e JavaScript (Gabriel e Rafael)
+### 🧩 Páginas principais, CSS das páginas principais e JavaScript (Gabriel e Rafael)
 
 - 🏠 Página inicial: `index.html`
 - ℹ️ Página sobre: `sobre.html`
 - ✉️ Página de contato: `contato.html`
 - 🎬 Página de filmes organizados por gênero: `filmes.html`
-- 🎨 CSS principal do site: `css/style.css`
-- ⚙️ JavaScript da página de filmes: `js/script.js`
+- 🎨 CSS das páginas principais do site: `css/contato.css`, `css/filmes.css`, `css/header.css`, `css/index.css` e `css/sobre.css`
+- ⚙️ JavaScript: `js/filmes-dados.js`, `js/filmes.js` e `js/header.js`
 
 ## 🎓 Disciplina
 
