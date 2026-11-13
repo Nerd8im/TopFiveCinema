@@ -1,15 +1,12 @@
 # 📦 Pasta `assets/`
 
-Reservada para mídias do site que não são imagens: áudio e vídeo.
+Reservada para mídias do site que não são imagens: vídeos.
 
-## 📁 Subpastas previstas
+## 📁 Subpastas
 
 | Pasta | Uso |
 | --- | --- |
-| `audio/` | 🎵 Arquivos de áudio, caso sejam utilizados. |
 | `video/` | 🎥 Vídeos, vídeo de fundo nas páginas individuais dos filmes. |
-
-As subpastas são criadas quando o primeiro arquivo for adicionado, porque o GitHub não guarda pastas vazias.
 
 ## 📌 Observações
 
