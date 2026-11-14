@@ -21,5 +21,5 @@ Contém as **35 páginas individuais de filmes** (5 filmes × 7 gêneros), separ
 Todas as páginas seguem o mesmo modelo HTML, com a estrutura: botão Voltar → capa + ficha técnica + sinopse → trailer → onde assistir.
 
 - 📝 O nome do arquivo é o nome do filme em minúsculo, sem acentos e com `_` no lugar dos espaços.
-- 🎨 Cada página carrega o CSS compartilhado (`css/style.css`) e o CSS exclusivo do filme (`css/filmes/GENERO/NOME-DO-FILME.css`).
+- 🎨 Cada página carrega o CSS compartilhado (`css/header.css`) e o CSS exclusivo do filme (`css/filmes/GENERO/NOME-DO-FILME.css`).
 - 🔗 Como as páginas estão 2 pastas dentro da raiz, os links usam `../../` para voltar até ela.
